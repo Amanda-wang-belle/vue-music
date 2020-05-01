@@ -22,3 +22,16 @@ npm install --save babel-polyfill
 然后再main.js中引入
 
 import 'babel-polyfill'
+
+#Mint UI
+1、安装mint-ui
+npm i mint-ui --save
+2、按需引入
+npm install babel-plugin-component -D
+3、修改.babelrc文件，注意vue-cli3中没有这个文件，所以，修改babel.config.js文件
+  plugins: [["component", [
+      {
+        "libraryName": "mint-ui",
+        "style": true
+      }
+    ]]]

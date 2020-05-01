@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.4",
+    "mint-ui": "^2.2.13",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6"
   },
@@ -20,6 +21,7 @@
     "@vue/cli-plugin-router": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "stylus": "^0.54.7",
