@@ -3,7 +3,7 @@ const path = require('path')
 function resolve(dir) {
 	/* 这个接口的作用就相当于在shell命令下，从左到右运行一遍cd path命令，
 	最终获取的绝对路径/文件名，就是这个接口所返回的结果了。 */
-	return path.join(_dirname,dir)
+	return path.join(__dirname,dir)
 }
 
 const projectName = require('./package.json').name
@@ -25,6 +25,15 @@ module.exports = {
 		loaderOptions: { //预处理器的 loader 传递自定义选项
 			stylus: { //给stylus-loader 传递选项
 				import: [path.resolve(__dirname,'./src/assets/css')+'/index.styl']
+			},
+			postcss: {
+				plugins: [
+				  require('postcss-pxtorem')({ // 把px单位换算成rem单位
+					rootValue: 37.5, // vant官方使用的是37.5
+					selectorBlackList: ['vant', 'mu'], // 忽略转换正则匹配项
+					propList: ['*']
+				  })
+				]
 			}
 		}
 	},
