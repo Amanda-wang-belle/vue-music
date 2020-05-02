@@ -4,25 +4,39 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
+  const routes = [{
+	path: '',
+	redirect: '/index'
+  },{
+    path: '/index',
+    name: 'index',
+    component: () => ,
+		import ('@/pages/index/index')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/detail',
+    name: 'detail',
+    component: () => import('@/pages/detail/detail')
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior(to, from , savedPosition) {
+	    // savedPosition 会在使用浏览器前进或后退按钮时候生效
+	    // he 使用 router.go() 或 router.back() 效果一致
+  	if (savedPosition) {
+  		return savedPosition
+  	} else{
+		// 与keepAlive结合，如果keepAlive的话，保存停留的位置：
+		if (from.meta.keepAlive) {
+		　　from.meta.savedPosition = document.body.scrollTop;
+		}
+  		return { x: 0, y: 0}
+  	}
+  }
+  
   routes
 })
 
