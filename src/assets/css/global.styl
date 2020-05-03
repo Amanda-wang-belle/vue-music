@@ -1,0 +1,61 @@
+@import "./index";
+
+* {
+	// 通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度.
+	box-sizing: border-box
+}
+
+html,body {
+	width: 100%;
+	min-height : 100%;
+	// 禁止双击缩放
+	touch-action :manipulation;
+	-ms-touch-action :manipulation;
+	-webkit-overflow-scrolling :touch; //ios顺畅滑动
+}
+
+body {
+	font-family : Roboto, Lato, sans-serif;
+	color :#333;
+	background :#f4f4f5;
+}
+
+/* iconfont */
+// class* 包含icon_的class,class^以icon_开头的class
+[class*='my-icon-'],[class^='my-icon-'] {
+	font-family :'iconfont',
+	font-size: inherit;
+	font-style :normal;
+/* 	这个属性可以使页面上的字体抗锯齿,使用后字体看起来会更清晰。
+	加上之后就顿时感觉页面小清晰了。 */
+	-webkit-font-smoothing: antialiased;
+	// 这个属性也是更清晰的作用。
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// 重置mint-ui样式，让mint组件根据屏幕自适应
+.mint-indicator-wrapper {
+	padding :toRem(15) !important;
+	.mint-spinner-snake {
+		width : toRem(32) !important;
+		height : toRem(32) !important;
+	}
+}
+
+[class^=mint-spinner-triple-bounce-] {
+	width :toRem(8) !important;
+	height :toRem(8) !important;
+}
+/*适配大于768px的屏幕，采用居中布局
+ */
+@media screen and(min-width:768px) {
+	html {
+		width:768px;
+		margin :auto auto;
+	}
+	#musicBarContainer {
+		width:768px;
+		left 50%;
+		transform translate3d(-50%,0,0)
+	}
+}
