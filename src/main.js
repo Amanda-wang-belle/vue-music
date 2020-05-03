@@ -9,6 +9,12 @@ import 'babel-polyfill'
 // 在vue中实现rem布局：postcss-pxtorem+amfe-flexible实现移动端适配
 import 'amfe-flexible'
 
+// 自定义
+import '@/assets' //字体、样式
+import '@/filters' //全局过滤器
+import '@/mock'   //模拟数据
+
+
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
