@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
@@ -10,7 +11,7 @@ Vue.use(VueRouter)
   },{
     path: '/index',
     name: 'index',
-    component: () => ,
+    component: () => 
 		import ('@/pages/index/index')
   },
   {
@@ -35,8 +36,7 @@ const router = new VueRouter({
 		}
   		return { x: 0, y: 0}
   	}
-  }
-  
+  }, 
   routes
 })
 
